@@ -1,6 +1,7 @@
 import {Column, Entity, Index, ManyToOne, OneToMany} from "typeorm";
 import BaseEntity from "./Entity";
 import {User} from "./User";
+
 import {JoinColumn} from "typeorm/browser";
 import {Expose} from "class-transformer";
 import Post from "./Post";

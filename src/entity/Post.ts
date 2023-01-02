@@ -45,6 +45,7 @@ export default class Post extends BaseEntity {
     @Exclude()
     @OneToMany(() => Vote, (vote) => vote.post)
     votes: Vote[];
+    protected userVote: number
 
     @Expose() get url(): string {
         return `r/${this.subName}/${this.identifier}/${this.slug}`
@@ -57,8 +58,6 @@ export default class Post extends BaseEntity {
     @Expose() get voteScore(): number {
         return this.votes?.reduce((memo, curt) => memo + (curt.value || 0), 0);
     }
-
-    protected userVote: number
 
     setUserVote(user: User): void {
         const index = this.votes?.findIndex(v => v.username === user.username);

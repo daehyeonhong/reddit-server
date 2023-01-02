@@ -35,19 +35,19 @@ export default class Comment extends BaseEntity {
 
     protected userVote: number;
 
-    setUserVote(user: User): void {
-        const index: number = this.votes?.findIndex(v => v.username === user.username)
-        this.userVote = index > -1 ? this.votes[index].value : 0;
-    }
-
     @Expose() get voteScore(): number {
         const initialValue = 0;
         return this.votes?.reduce((previousValue, currentObject) =>
             previousValue + (currentObject.value || 0), initialValue);
     }
 
+    setUserVote(user: User): void {
+        const index: number = this.votes?.findIndex(v => v.username === user.username)
+        this.userVote = index > -1 ? this.votes[index].value : 0;
+    }
+
     @BeforeInsert()
-    makeId():void {
+    makeId(): void {
         this.identifier = makeId(8)
     }
 };

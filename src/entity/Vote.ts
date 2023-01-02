@@ -3,6 +3,7 @@ import BaseEntity from "./Entity";
 import {User} from "./User";
 import {JoinColumn} from "typeorm/browser";
 import Post from "./Post";
+import Comment from "./Comment";
 
 @Entity("vote")
 export default class Vote extends BaseEntity {
