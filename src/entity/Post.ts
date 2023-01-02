@@ -1,6 +1,7 @@
 import {BeforeInsert, Column, Entity, Index, ManyToOne, OneToMany} from "typeorm";
 import BaseEntity from "./Entity"
 import {User} from "./User";
+import Comment from "./Comment";
 import {JoinColumn} from "typeorm/browser";
 import Sub from "./Sub";
 import {Exclude, Expose} from "class-transformer";
@@ -59,13 +60,13 @@ export default class Post extends BaseEntity {
 
     protected userVote: number
 
-    setUserVote(user: User) {
+    setUserVote(user: User): void {
         const index = this.votes?.findIndex(v => v.username === user.username);
         this.userVote = index > -1 ? this.votes[index].value : 0;
     }
 
     @BeforeInsert()
-    makeIdAndSlug() {
+    makeIdAndSlug(): void {
         this.identifier = makeId(7);
         this.slug = slugify(this.title);
     }

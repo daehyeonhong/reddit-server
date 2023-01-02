@@ -30,7 +30,7 @@ export class User extends BaseEntity {
     votes: Vote[];
 
     @BeforeInsert()
-    async hashPassword() {
+    async hashPassword(): Promise<void> {
         this.password = await bcrypt.hash(this.password, 6);
     }
 }
