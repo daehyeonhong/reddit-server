@@ -5,6 +5,7 @@ import {JoinColumn} from "typeorm/browser";
 import Sub from "./Sub";
 import {Exclude, Expose} from "class-transformer";
 import {makeId, slugify} from "../utils/helper";
+import Vote from "./Vote";
 
 @Entity("post")
 export default class Post extends BaseEntity {
