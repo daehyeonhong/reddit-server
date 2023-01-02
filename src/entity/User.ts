@@ -1,4 +1,5 @@
-import {BaseEntity, BeforeInsert, Column, Entity, Index, OneToMany} from "typeorm"
+import {BeforeInsert, Column, Entity, Index, OneToMany} from "typeorm"
+import BaseEntity from "./Entity";
 import {IsEmail, Length} from "class-validator";
 import {Exclude} from "class-transformer";
 import bcrypt from "bcryptjs";
