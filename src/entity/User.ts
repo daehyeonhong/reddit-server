@@ -3,6 +3,7 @@ import BaseEntity from "./Entity";
 import {IsEmail, Length} from "class-validator";
 import {Exclude} from "class-transformer";
 import bcrypt from "bcryptjs";
+import Post from "./Post";
 
 @Entity("users")
 export class User extends BaseEntity {
